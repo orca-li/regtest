@@ -27,6 +27,7 @@ Use cygwin or msys2. Then follow the Linux/MacOS instructions.
 ```bash
 git clone https://github.com/orca-li/regtst.git
 make
+make RELEASE=1 <add other tokens>
 ```
 
 You can also add and change as you like.
@@ -57,3 +58,13 @@ regsize_t regtst(char* reg, ramsize_t regsz);
 ```
 
 The function returns the number of registers that failed the check. It also accepts a pointer to the beginning of the region under test and its size. The function prints through printf and uses escape sequences. You need to know that the function returns "!!" if the register is broken. Otherwise, the function can return the original register value, so there may be more than just zeros.
+
+# ADDONS
+
+If you want to improve customization, change tests, or enable/disable something from the code without reinventing the wheel, you can explore the project’s addons. The purpose of addons is to provide flexible and exhaustive functionality, but with zero impact on your code. To enable or disable something, you only need to create a macro. See the `docs/ADDONS.md` file for more details.
+
+To access them, enter the following command:
+
+```
+make ADDONS=1 <add other tokens>
+```
