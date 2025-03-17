@@ -3,7 +3,7 @@
 
 #ifndef REGTEST_MAJOR
 #warning "REGTEST_MAJOR"
-#define REGTEST_MAJOR 1
+#define REGTEST_MAJOR 0
 #endif
 #ifndef REGTEST_MINOR
 #warning "REGTEST_MINOR"
@@ -14,30 +14,18 @@
 #define REGTEST_PATCH 0
 #endif
 
-#define KILO_STEP_SIZE 1000ULL
-#define KIBI_STEP_SIZE 1024ULL
-#define KB (1 * KILO_STEP_SIZE)
-#define MB (KB * KILO_STEP_SIZE)
-#define GB (MB * KILO_STEP_SIZE)
-#define TB (GB * KILO_STEP_SIZE)
-#define KiB (1 * KIBI_STEP_SIZE)
-#define MiB (KiB * KIBI_STEP_SIZE)
-#define GiB (MiB * KIBI_STEP_SIZE)
-#define TiB (GiB * KIBI_STEP_SIZE)
-
 #ifndef EMULATOR_TEST_MEMORY
 #warning "EMULATOR_TEST_MEMORY"
 #define EMULATOR_TEST_MEMORY 0
 #endif
 
-#if EMULATOR_TEST_MEMORY
-#define _POSIX_C_SOURCE 200809L
-#include <time.h>
-
-#ifndef DECELERATION_OF_TIME
-#warning "DECELERATION_OF_TIME"
-#define DECELERATION_OF_TIME 0
+#ifndef REGTST_ADDONS
+#warning "REGTST_ADDONS"
+#define REGTST_ADDONS 0
 #endif
+
+#if REGTST_ADDONS
+#include "addons/addons.h"
 #endif
 
 typedef unsigned long long regsize_t;

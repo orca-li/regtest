@@ -6,7 +6,7 @@
 #endif
 
 #include "regtst.h"
-
+#include "addons/lib-addon/lib-addon.h"
 
 #define RAM_SIZE 64 * KiB
 

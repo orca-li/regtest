@@ -2,30 +2,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "regtst.h"
+#include "addons/addons.h"
 
 static long LineCounter = 0;
 static long SpaceCounter = 0;
 static regsize_t BadRegisterCounter = 0;
 static regsize_t BytesChecked = 0;
-
-char* fmtbytes(char* str, regsize_t bytes)
-{
-    char* fmt = str;
-
-    if (bytes < KiB)
-        sprintf(str, "%lluB", bytes);
-    else if (bytes < MiB)
-        sprintf(str, "%.1fKiB", (double)bytes / KiB);
-    else if (bytes < GiB)
-        sprintf(str, "%.1fMiB", (double)bytes / MiB);
-    else if (bytes < TiB)
-        sprintf(str, "%.1fGiB", (double)bytes / GiB);
-    else
-        sprintf(str, "%.1fTiB", (double)bytes / TiB);
-
-    return fmt;
-}
-
 
 static void AddressCtl(const char* const itr)
 {
@@ -111,20 +93,6 @@ static void PrintStart(void)
     printf("Starting Reg Test...\r\n");
 }
 
-static void PrintExit(regsize_t regsz, char* begin, char* end)
-{
-    static const int buffsz = 128;
-    char buffer[buffsz];
-    printf("Reg test has been completed!\r\n\r\n");
-    printf("Range: %p => %p\r\n", begin, end - 1);
-    printf("Total memory: %s\r\n", fmtbytes(buffer, regsz));
-    printf("Dead registers: %lld\r\n\r\n", BadRegisterCounter);
-    printf("Version: %d.%d.%d\r\n", REGTEST_MAJOR, REGTEST_MINOR, REGTEST_PATCH);
-    printf("MIT License\r\n");
-    printf("Copyright(c) 2025 Orcali\r\n");
-    printf("Done!\r\n");
-}
-
 regsize_t regtst(char* reg, regsize_t regsz)
 {
     char* itr = reg;
@@ -139,7 +107,7 @@ regsize_t regtst(char* reg, regsize_t regsz)
         EndLineCtl();
     }
 
-    PrintExit(regsz, reg, itr);
+    regtstAddonsExitBanner(regsz, reg, itr);
 
     return BadRegisterCounter;
 }

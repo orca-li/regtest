@@ -1,5 +1,6 @@
-EMULATOR ?= 
+EMULATOR ?=
 DECELERATION ?=
+EXIT_BANNER ?=
 
 VERSION_MAJOR := 1
 VERSION_MINOR := 0
@@ -28,12 +29,24 @@ CC_FLAGS += -D"DECELERATION_OF_TIME"=1
 else
 CC_FLAGS += -D"DECELERATION_OF_TIME"=0
 endif
+ifeq ($(ADDONS), 1)
+CC_FLAGS += -D"REGTST_ADDONS"=1
+else
+CC_FLAGS += -D"REGTST_ADDONS"=0
+endif
+ifeq ($(EXIT_BANNER), 1)
+CC_FLAGS += -D"ADDONS_EXIT_BANNER"=1
+CC_SOURCES += addons/exit-banner/exit-banner.c
+else
+CC_FLAGS += -D"ADDONS_EXIT_BANNER"=0
+endif
 
 CC_ASAN += -fsanitize=address,undefined,leak
 CC_MSAN += -fsanitize=memory,undefined
 
 CC_SOURCES += regtst.c
 CC_SOURCES += main.c
+CC_SOURCES += addons/lib-addon/lib-addon.c
 
 TARGET := v$(VERSION)-regtst.out
 BUILD := build
