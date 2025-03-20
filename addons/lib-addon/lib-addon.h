@@ -20,7 +20,7 @@ uint8_t regtstLibAddonCheckReg8(uint8_t* const itr, uint8_t value, uint8_t statu
 #if REGTST_ADDONS
 void regtstLibAddonBeforeTest(void);
 #else
-#define regtstLibAddonBeforeTest(...);
+#define regtstLibAddonBeforeTest(...)
 #endif
 
 #endif /* FILE_UUID_b9a31947_a545_49b6_9f84_86d8bf879cce */

@@ -1,0 +1,13 @@
+VENDOR := oem
+
+ADDONS ?= 1
+ifeq ($(ADDONS),1)
+EXIT_BANNER ?= 1
+PROGRESS_DUMP ?= 1
+else
+EXIT_BANNER ?= 0
+PROGRESS_DUMP ?= 0
+endif
+
+EMULATOR ?= 1
+DECELERATION ?= 1

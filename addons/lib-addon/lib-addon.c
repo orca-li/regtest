@@ -80,7 +80,9 @@ char* regtstLibAddonFmtBytes(char* str, uintmax_t bytes)
     return fmt;
 }
 
+#if REGTST_ADDONS
 void regtstLibAddonBeforeTest(void)
 {
     SRAND();
 }
+#endif
