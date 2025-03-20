@@ -14,6 +14,13 @@
 #define GiB (MiB * KIBI_STEP_SIZE)
 #define TiB (GiB * KIBI_STEP_SIZE)
 
-char* regtstAddonFmtBytes(char* str, uintmax_t bytes);
+char* regtstLibAddonFmtBytes(char* str, uintmax_t bytes);
+uint8_t regtstLibAddonCheckReg8(uint8_t* const itr, uint8_t value, uint8_t status);
+
+#if REGTST_ADDONS
+void regtstLibAddonBeforeTest(void);
+#else
+#define regtstLibAddonBeforeTest(...);
+#endif
 
 #endif /* FILE_UUID_b9a31947_a545_49b6_9f84_86d8bf879cce */

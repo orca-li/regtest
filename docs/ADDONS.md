@@ -9,3 +9,9 @@ The “Token” column specifies the entry you need to add to the Makefile. The 
 |TOKEN|MACROS|Description|
 |-|-|-|
 |`EXIT_BANNER`|`ADDONS_EXIT_BANNER`| Grants the right to include other sub-tokens|
+
+## progress-dump
+
+|TOKEN|MACROS|Description|
+|-|-|-|
+|`PROGRESS_DUMP`|`ADDONS_PROGRESS_DUMP`| Grants the right to include other sub-tokens|

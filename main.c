@@ -8,13 +8,12 @@
 #include "regtst.h"
 #include "addons/lib-addon/lib-addon.h"
 
-#define RAM_SIZE 64 * KiB
+#define RAM_SIZE 64
 
 int main()
 {
-    char RAM[RAM_SIZE] = {0};
+    uint8_t RAM[RAM_SIZE] = {0};
 
-    SRAND();
     if (regtst(RAM, RAM_SIZE))
         return 1;
 

@@ -1,6 +1,8 @@
 #ifndef FILE_UUID_fed2f221_eef3_4912_a186_e586433cd532
 #define FILE_UUID_fed2f221_eef3_4912_a186_e586433cd532
 
+#include <stdint.h>
+
 #ifndef REGTEST_MAJOR
 #warning "REGTEST_MAJOR"
 #define REGTEST_MAJOR 0
@@ -28,8 +30,8 @@
 #include "addons/addons.h"
 #endif
 
-typedef unsigned long long regsize_t;
+#include <stdint.h>
 
-regsize_t regtst(char* reg, regsize_t regsz);
+uintmax_t regtst(uint8_t* const start, uintmax_t range);
 
 #endif /* FILE_UUID_fed2f221_eef3_4912_a186_e586433cd532 */
