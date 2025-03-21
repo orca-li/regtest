@@ -26,11 +26,6 @@ CC_ASAN += -fsanitize=address,undefined,leak
 CC_MSAN += -fsanitize=memory,undefined
 endif
 
-CC_SOURCES += regtst.c
-CC_SOURCES += main.c
-CC_SOURCES += addons/lib-addon/lib-addon.c
-CC_SOURCES += tests/00-test-55AA/00-test-55aa.c
-
 MD = mkdir
 MD_FLAGS += -pv
 

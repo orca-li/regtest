@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "regtst.h"
+#include "regtest.h"
 #include "addons/addons.h"
 #include "tests/tests.h"
 

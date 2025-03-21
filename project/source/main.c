@@ -1,11 +1,4 @@
-#if EMULATOR_TEST_MEMORY
-#include <stdlib.h>
-#define SRAND() srand(time(NULL))
-#else
-#define SRAND()
-#endif
-
-#include "regtst.h"
+#include "regtest.h"
 #include "addons/lib-addon/lib-addon.h"
 
 #define RAM_SIZE 64
