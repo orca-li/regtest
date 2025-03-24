@@ -1,12 +1,12 @@
 v1.0.0
 ```
-                       /   d8            d8   
-888-~\  e88~~8e  e88~88e _d88__  d88~\ _d88__ 
-888    d888  88b 888 888  888   C888    888   
-888    8888__888 "88_88"  888    Y88b   888   
-888    Y888    ,  /       888     888D  888   
-888     "88___/  Cb       "88_/ \_88P   "88_/ 
-                  Y8""8D                                                                     
+                       /   d8                      d8
+888-~\  e88~~8e  e88~88e _d88__  e88~~8e   d88~\ _d88__
+888    d888  88b 888 888  888   d888  88b C888    888
+888    8888__888 "88_88"  888   8888__888  Y88b   888
+888    Y888    ,  /       888   Y888    ,   888D  888
+888     "88___/  Cb       "88_/  "88___/  \_88P   "88_/
+                  Y8""8D
 ```
 # About
 This library provides an API for testing registers during microcontroller boot. It can be used to test ROM, flash, and RAM, although it was initially created for RAM testing.

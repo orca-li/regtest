@@ -18,10 +18,12 @@ static uintmax_t TestRun(uint8_t* const itr, uintmax_t range)
     return errcnt;
 }
 
-uintmax_t regtst(uint8_t* const start, uintmax_t range)
+uintmax_t regtest(uint8_t* const start, uintmax_t range)
 {
     uintmax_t errcnt = 0;
     uint8_t* itr = start;
+
+    regtestAddonsRegtestBanner();
 
     regtstLibAddonBeforeTest();
 

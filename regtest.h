@@ -32,6 +32,6 @@
 
 #include <stdint.h>
 
-uintmax_t regtst(uint8_t* const start, uintmax_t range);
+uintmax_t regtest(uint8_t* const start, uintmax_t range);
 
 #endif /* FILE_UUID_fed2f221_eef3_4912_a186_e586433cd532 */

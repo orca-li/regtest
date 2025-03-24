@@ -25,6 +25,12 @@ CC_SOURCES += addons/progress-dump/progress-dump.c
 else
 CC_FLAGS += -D"ADDONS_PROGRESS_DUMP"=0
 endif
+ifeq ($(REGTEST_BANNER), 1)
+CC_FLAGS += -D"REGTEST_REGTEST_BANNER"=1
+CC_SOURCES += addons/regtest-banner/regtest-banner.c
+else
+CC_FLAGS += -D"REGTEST_REGTEST_BANNER"=0
+endif
 
 TOKENS += VENDOR
 TOKENS += TARGET
@@ -33,3 +39,4 @@ TOKENS += ADDONS
 TOKENS += DECELERATION
 TOKENS += EXIT_BANNER
 TOKENS += PROGRESS_DUMP
+TOKENS += REGTEST_BANNER
