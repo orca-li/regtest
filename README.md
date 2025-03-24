@@ -1,12 +1,12 @@
 v1.0.0
 ```
-                       /   d8            d8   
-888-~\  e88~~8e  e88~88e _d88__  d88~\ _d88__ 
-888    d888  88b 888 888  888   C888    888   
-888    8888__888 "88_88"  888    Y88b   888   
-888    Y888    ,  /       888     888D  888   
-888     "88___/  Cb       "88_/ \_88P   "88_/ 
-                  Y8""8D                                                                     
+                       /   d8                      d8
+888-~\  e88~~8e  e88~88e _d88__  e88~~8e   d88~\ _d88__
+888    d888  88b 888 888  888   d888  88b C888    888
+888    8888__888 "88_88"  888   8888__888  Y88b   888
+888    Y888    ,  /       888   Y888    ,   888D  888
+888     "88___/  Cb       "88_/  "88___/  \_88P   "88_/
+                  Y8""8D
 ```
 # About
 This library provides an API for testing registers during microcontroller boot. It can be used to test ROM, flash, and RAM, although it was initially created for RAM testing.
@@ -27,6 +27,7 @@ Use cygwin or msys2. Then follow the Linux/MacOS instructions.
 ```bash
 git clone https://github.com/orca-li/regtst.git
 make
+make RELEASE=1 <add other tokens>
 ```
 
 You can also add and change as you like.
@@ -57,3 +58,13 @@ regsize_t regtst(char* reg, ramsize_t regsz);
 ```
 
 The function returns the number of registers that failed the check. It also accepts a pointer to the beginning of the region under test and its size. The function prints through printf and uses escape sequences. You need to know that the function returns "!!" if the register is broken. Otherwise, the function can return the original register value, so there may be more than just zeros.
+
+# ADDONS
+
+If you want to improve customization, change tests, or enable/disable something from the code without reinventing the wheel, you can explore the project’s addons. The purpose of addons is to provide flexible and exhaustive functionality, but with zero impact on your code. To enable or disable something, you only need to create a macro. See the `docs/ADDONS.md` file for more details.
+
+To access them, enter the following command:
+
+```
+make ADDONS=1 <add other tokens>
+```
