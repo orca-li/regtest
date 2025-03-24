@@ -8,7 +8,7 @@ RemoveTokenFile:
 	@$(RM) $(RM_FLAGS) $(TOKENFILE)
 
 MakeTokenFile: RemoveTokenFile
-	@printf "%s = %s\n" $(foreach token,$(TOKENS),$(token) $(value $(token))) > $(TOKENFILE)
+	@printf "%s = %s\n" $(foreach token,$(TOKENS),$(token) $(if $(strip $(value $(token))),$(value $(token)),\(null\))) > $(TOKENFILE)
 
 MakeCompilation: $(MakeCompilationPrerequisites)
 

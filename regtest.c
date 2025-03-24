@@ -31,7 +31,7 @@ uintmax_t regtest(uint8_t* const start, uintmax_t range)
     errcnt = TestRun(itr, range);
     itr += range;
 
-    regtstAddonsExitBanner(range, start, itr);
+    regtstAddonsExitBanner(errcnt, range, start, itr);
 
     gDEBUGerrcnt_PRINT();
 

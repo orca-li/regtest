@@ -4,7 +4,7 @@
 #if ADDONS_EXIT_BANNER
 #include "../lib-addon/lib-addon.h"
 
-void regtstAddonsExitBanner(uintmax_t range, uint8_t* begin, uint8_t* end);
+void regtstAddonsExitBanner(uintmax_t errcnt, uintmax_t range, uint8_t* begin, uint8_t* end);
 
 #else
 #define regtstAddonsExitBanner(...)

@@ -31,7 +31,7 @@ static void DeceleratinOfTimeHandle()
 #if EMULATOR_TEST_MEMORY
 inline static void BreakByte(uint8_t* const itr)
 {
-    if ((double)rand() / RAND_MAX < 0.5)
+    if ((double)rand() / RAND_MAX < 0.1)
     {
         gDEBUGerrcnt_ADD(1);
         *itr ^= *itr;
