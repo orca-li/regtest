@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "regtest.h"
 #include "addons/lib-addon/lib-addon.h"
 
@@ -7,8 +8,7 @@ int main()
 {
     uint8_t RAM[RAM_SIZE] = {0};
 
-    if (regtest(RAM, RAM_SIZE))
-        return 1;
+    printf("retval: %ju\r\n", regtest(RAM, RAM_SIZE));
 
     return 0;
 }

@@ -4,6 +4,7 @@
 #include "regtest.h"
 #include "addons/addons.h"
 #include "tests/tests.h"
+#include "include/all.h"
 
 static regtest_t tests[TESTS_LIST_SIZE] = {TESTS_LIST_ARRAY};
 static uint8_t tests_order[TESTS_LIST_SIZE] = {TESTS_LIST_ORDER};
@@ -31,6 +32,8 @@ uintmax_t regtest(uint8_t* const start, uintmax_t range)
     itr += range;
 
     regtstAddonsExitBanner(range, start, itr);
+
+    gDEBUGerrcnt_PRINT();
 
     return errcnt;
 }

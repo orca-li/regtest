@@ -6,9 +6,7 @@
 struct PROGRESS_DUMP_CTL {
     uintmax_t line;
     uintmax_t space;
-    uintmax_t bad;
 } static ProgressDumpCtl = {
-    .bad = 0,
     .line = 0,
     .space = 0
 };
@@ -32,7 +30,6 @@ static void PrintBadReg(uint8_t status)
 {
     printf("%s", (status == REGTST_STATUS_BAD_REGISTER) ? "!!" :"\b\b!!");
     fflush(stdout);
-    ProgressDumpCtl.bad++;
 }
 
 static void StatusCtl(const uint8_t* const itr, uint8_t status)

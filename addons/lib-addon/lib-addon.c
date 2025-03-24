@@ -3,6 +3,7 @@
 #include <time.h>
 #include "lib-addon.h"
 #include "addons/progress-dump/progress-dump.h"
+#include "include/all.h"
 
 #if EMULATOR_TEST_MEMORY
 #include <stdlib.h>
@@ -11,8 +12,11 @@
 #define SRAND()
 #endif
 
-#if DECELERATION_OF_TIME
+#if REGTEST_DEBUG
+uintmax_t gDEBUG_errcnt = 0;
+#endif
 
+#if DECELERATION_OF_TIME
 static void DeceleratinOfTimeHandle()
 {
     struct timespec req = {0};
@@ -27,8 +31,11 @@ static void DeceleratinOfTimeHandle()
 #if EMULATOR_TEST_MEMORY
 inline static void BreakByte(uint8_t* const itr)
 {
-    if ((double)rand() / RAND_MAX < 0.01)
+    if ((double)rand() / RAND_MAX < 0.5)
+    {
+        gDEBUGerrcnt_ADD(1);
         *itr ^= *itr;
+    }
 }
 
 static void EmulatorHandle(uint8_t* const itr)
@@ -56,8 +63,10 @@ uint8_t regtstLibAddonCheckReg8(uint8_t* const itr, uint8_t value, uint8_t statu
 
     regtstAddonProgressDump(itr, status);
 
-    if (status != REGTST_STATUS_BAD_REGISTER || status != REGTST_STATUS_REPEATE_PRINT_BAD_REGISTER)
+    if (status != REGTST_STATUS_BAD_REGISTER && status != REGTST_STATUS_REPEATE_PRINT_BAD_REGISTER)
         status = REGTST_STATUS_OK_REGISTER;
+    else
+        status = REGTST_STATUS_BAD_REGISTER;
 
     return status;
 }
